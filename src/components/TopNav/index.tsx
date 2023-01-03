@@ -1,8 +1,8 @@
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import MenuItem from '@material-ui/core/MenuItem';
-import MenuList from '@material-ui/core/MenuList';
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
+// import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+// import MenuItem from '@material-ui/core/MenuItem';
+// import MenuList from '@material-ui/core/MenuList';
+// import Paper from '@material-ui/core/Paper';
+// import Popper from '@material-ui/core/Popper';
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
@@ -21,7 +21,7 @@ const ROUTES_SOLANA = [
   { url: RouteName.home, name: 'Marketplace' },
   { url: RouteName.sell, name: 'Sell' },
   { url: RouteName.auctionsView, name: 'Auctions' },
-  { url: RouteName.drop, name: 'Edition Drops' },
+  // { url: RouteName.drop, name: 'Edition Drops' },
 ];
 
 const getRoutes = () => {
@@ -32,35 +32,35 @@ const getRoutes = () => {
   return ROUTES_SOLANA;
 };
 
-const OTHER_LAYOUT_ROUTES = [
-  { url: RouteName.customToken, name: 'Custom Token Marketplace' },
-  { url: RouteName.multipleCollection, name: 'Multi Collection Marketplace' },
-  { url: RouteName.marketplaceWithUrl, name: 'Marketplace With URL' },
-  { url: RouteName.activityView, name: 'Marketplace Activity' },
-];
+// const OTHER_LAYOUT_ROUTES = [
+//   { url: RouteName.customToken, name: 'Custom Token Marketplace' },
+//   { url: RouteName.multipleCollection, name: 'Multi Collection Marketplace' },
+//   { url: RouteName.marketplaceWithUrl, name: 'Marketplace With URL' },
+//   { url: RouteName.activityView, name: 'Marketplace Activity' },
+// ];
 
 const TopNav: React.FC = () => {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<HTMLLIElement>(null);
-  const blockchain = getBlockchain(NETWORK);
+  // const blockchain = getBlockchain(NETWORK);
 
   const { pathname } = useLocation();
 
-  const handleToggle = () => {
-    setOpen((prevOpen) => !prevOpen);
-  };
+  // const handleToggle = () => {
+  //   setOpen((prevOpen) => !prevOpen);
+  // };
 
-  const handleClose = (event: any) => {
-    if (anchorRef.current?.contains(event.target)) return;
-    setOpen(false);
-  };
+  // const handleClose = (event: any) => {
+  //   if (anchorRef.current?.contains(event.target)) return;
+  //   setOpen(false);
+  // };
 
-  const handleListKeyDown = (event: any) => {
-    if (event.key === 'Tab') {
-      event.preventDefault();
-      setOpen(false);
-    }
-  };
+  // const handleListKeyDown = (event: any) => {
+  //   if (event.key === 'Tab') {
+  //     event.preventDefault();
+  //     setOpen(false);
+  //   }
+  // };
 
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = useRef(open);
@@ -84,7 +84,7 @@ const TopNav: React.FC = () => {
             <Link to={item.url}>{item.name}</Link>
           </li>
         ))}
-        {blockchain === BlockchainType.SOL && (
+        {/* {blockchain === BlockchainType.SOL && (
           <DropdownAnchor
             ref={anchorRef}
             onClick={handleToggle}
@@ -114,7 +114,7 @@ const TopNav: React.FC = () => {
               </Paper>
             </Popper>
           </DropdownAnchor>
-        )}
+        )} */}
       </Menu>
       <Wallet>
         <ConnectButton />
