@@ -16,7 +16,7 @@ const Marketplace: React.FC = () => {
         candyShop={candyShop}
         title={'Marketplace'}
         description={
-          'Candy Shop is an open source library that allows you to create NFT storefronts and auctions in minutes!'
+          'Bread Heads marketplace for buying and selling in CRUMBS'
         }
         style={{ paddingBottom: 50 }}
       />
