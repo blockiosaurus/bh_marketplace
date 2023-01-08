@@ -12,13 +12,17 @@ import {
 import { useGetPromise } from '@/hooks/useGetPromise';
 import { useUserWallet } from '@/hooks/useUserWallet';
 
-const CustomTokenMarketplace: React.FC = () => {
+type Props = {
+  mint: string
+};
+
+const CustomTokenMarketplace: React.FC<Props> = ({mint}) => {
   const userWallet = useUserWallet();
 
   const candyShop = useGetPromise(
     CandyShop.initSolCandyShop({
       shopCreatorAddress: CANDY_SHOP_CREATOR_ADDRESS,
-      treasuryMint: CANDY_SHOP_TREASURY_MINT,
+      treasuryMint: CANDY_SHOP_TREASURY_MINT.get(mint)!,
       programId: CANDY_SHOP_PROGRAM_ID,
       env: NETWORK,
       // pass additional settings param to configure shop display

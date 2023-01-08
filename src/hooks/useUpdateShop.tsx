@@ -12,7 +12,7 @@ import {
 } from '@/utils/candy-shop';
 import { getBlockchain } from '@/utils/shop';
 
-export const useUpdateShop = () => {
+export const useUpdateShop = (mint: string) => {
   const [loading, setLoading] = useState(false);
   const [walletName] = useWalletStore((s) => [s.walletName]);
   const setCandyShop = useShopStore((s) => s.setCandyShop);
@@ -45,7 +45,7 @@ export const useUpdateShop = () => {
     if (getBlockchain(NETWORK) === BlockchainType.EVM) {
       const params: Parameters<typeof EthCandyShop.initEthCandyShop>[0] = {
         shopCreatorAddress: CANDY_SHOP_CREATOR_ADDRESS,
-        treasuryMint: CANDY_SHOP_TREASURY_MINT,
+        treasuryMint: CANDY_SHOP_TREASURY_MINT.get(mint)!,
         programId: CANDY_SHOP_PROGRAM_ID,
         env: NETWORK,
         settings: {},
@@ -62,7 +62,7 @@ export const useUpdateShop = () => {
     } else {
       const params: Parameters<typeof CandyShop.initSolCandyShop>[0] = {
         shopCreatorAddress: CANDY_SHOP_CREATOR_ADDRESS,
-        treasuryMint: CANDY_SHOP_TREASURY_MINT,
+        treasuryMint: CANDY_SHOP_TREASURY_MINT.get(mint)!,
         programId: CANDY_SHOP_PROGRAM_ID,
         env: NETWORK,
         settings: {

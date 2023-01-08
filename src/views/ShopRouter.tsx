@@ -12,9 +12,11 @@ import SingleOrder from './SingleOrder';
 import TopNav from '@/components/TopNav';
 import { RouteName } from '@/constant/routeNames';
 import { useUpdateShop } from '@/hooks/useUpdateShop';
+import { useState } from 'react';
 
 export const ShopRouter = () => {
-  useUpdateShop();
+  const [mint, setMint] = useState<string>("");
+  useUpdateShop(mint);
   return (
     <main>
       <MainContainer>
@@ -26,9 +28,10 @@ export const ShopRouter = () => {
           <Route path={RouteName.auctionsView} element={<AuctionsView />} />
           <Route path={RouteName.drop} element={<Drop />} />
           <Route path={RouteName.activityView} element={<ActivityView />} />
-          <Route path={RouteName.customToken} element={<CustomTokenMarketplace />} />
+          <Route path={RouteName.customToken} element={<CustomTokenMarketplace mint={mint} />} />
           <Route path={RouteName.multipleCollection} element={<MarketplaceWithFilter />} />
           <Route path={RouteName.marketplaceWithUrl} element={<MarketplaceWithUrl />} />
+          <Route path={RouteName.crumbsMarketplace} element={<Marketplace />} />
         </Routes>
       </MainContainer>
     </main>

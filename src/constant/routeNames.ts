@@ -9,4 +9,7 @@ export enum RouteName {
   customToken = '/custom-token-marketplace',
   multipleCollection = '/multi-collection-marketplace',
   marketplaceWithUrl = '/marketplace-with-url',
+  crumbsMarketplace = '/crumbs-marketplace',
+  solMarketplace = '/sol-marketplace',
+  bonkMarketplace = '/bonk-marketplace',
 }

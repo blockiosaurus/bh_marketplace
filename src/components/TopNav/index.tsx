@@ -11,6 +11,7 @@ import { ConnectButton } from '@/components/ConnectButton';
 import { RouteName } from '@/constant/routeNames';
 import { NETWORK } from '@/utils/candy-shop';
 import { getBlockchain } from '@/utils/shop';
+import { ClickAwayListener, MenuItem, MenuList, Paper, Popper } from '@material-ui/core';
 
 const ROUTES_ETH = [
   { url: RouteName.home, name: 'Marketplace' },
@@ -32,6 +33,18 @@ const getRoutes = () => {
   return ROUTES_SOLANA;
 };
 
+const MARKETPLACE_ROUTES = [
+  { url: RouteName.home, name: 'Marketplace' },
+];
+
+const SELL_ROUTES = [
+  { url: RouteName.home, name: 'Marketplace' },
+];
+
+const AUCTION_ROUTES = [
+  { url: RouteName.auctionsView, name: 'Auctions' },
+];
+
 // const OTHER_LAYOUT_ROUTES = [
 //   { url: RouteName.customToken, name: 'Custom Token Marketplace' },
 //   { url: RouteName.multipleCollection, name: 'Multi Collection Marketplace' },
@@ -46,21 +59,21 @@ const TopNav: React.FC = () => {
 
   const { pathname } = useLocation();
 
-  // const handleToggle = () => {
-  //   setOpen((prevOpen) => !prevOpen);
-  // };
+  const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen);
+  };
 
-  // const handleClose = (event: any) => {
-  //   if (anchorRef.current?.contains(event.target)) return;
-  //   setOpen(false);
-  // };
+  const handleClose = (event: any) => {
+    if (anchorRef.current?.contains(event.target)) return;
+    setOpen(false);
+  };
 
-  // const handleListKeyDown = (event: any) => {
-  //   if (event.key === 'Tab') {
-  //     event.preventDefault();
-  //     setOpen(false);
-  //   }
-  // };
+  const handleListKeyDown = (event: any) => {
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      setOpen(false);
+    }
+  };
 
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = useRef(open);
@@ -84,13 +97,13 @@ const TopNav: React.FC = () => {
             <Link to={item.url}>{item.name}</Link>
           </li>
         ))}
-        {/* {blockchain === BlockchainType.SOL && (
+        {(
           <DropdownAnchor
             ref={anchorRef}
             onClick={handleToggle}
-            className={OTHER_LAYOUT_ROUTES.some((item) => item.url === pathname) ? 'active' : ''}
+            className={MARKETPLACE_ROUTES.some((item) => item.url === pathname) ? 'active' : ''}
           >
-            Other Layouts
+            MarketplaceNew
             <Popper
               open={open}
               anchorEl={anchorRef.current}
@@ -101,7 +114,7 @@ const TopNav: React.FC = () => {
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} onKeyDown={handleListKeyDown}>
-                    {OTHER_LAYOUT_ROUTES.map((item) => (
+                    {MARKETPLACE_ROUTES.map((item) => (
                       <MenuItem
                         className={item.url === pathname ? 'active active-submenu' : ''}
                         key={item.url}
@@ -114,7 +127,7 @@ const TopNav: React.FC = () => {
               </Paper>
             </Popper>
           </DropdownAnchor>
-        )} */}
+        )}
       </Menu>
       <Wallet>
         <ConnectButton />
