@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Orders, Stat } from '@liqnft/candy-shop';
+import { CandyShopDataValidator, Orders, Stat } from '@liqnft/candy-shop';
 import { ConnectButton } from '@/components/ConnectButton';
 import { useUserWallet } from '@/hooks/useUserWallet';
 import { useShopStore } from '@/store/useShopStore';
@@ -21,12 +21,14 @@ const Marketplace: React.FC = () => {
         style={{ paddingBottom: 50 }}
       />
 
-      <Orders
-        wallet={userWallet}
-        candyShop={candyShop}
-        walletConnectComponent={<ConnectButton />}
-        search
-      />
+      <CandyShopDataValidator>
+        <Orders
+          wallet={userWallet}
+          candyShop={candyShop}
+          walletConnectComponent={<ConnectButton />}
+          search
+        />
+      </CandyShopDataValidator>
     </DesContainer>
   );
 };
