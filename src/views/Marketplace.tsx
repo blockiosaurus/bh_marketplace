@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { CandyShopDataValidator, Orders, Stat } from '@liqnft/candy-shop';
+import { Activity, CandyShopDataValidator, Orders, Stat } from '@liqnft/candy-shop';
 import { ConnectButton } from '@/components/ConnectButton';
 import { useUserWallet } from '@/hooks/useUserWallet';
 import { useShopStore } from '@/store/useShopStore';
@@ -29,6 +29,13 @@ const Marketplace: React.FC = () => {
           search
         />
       </CandyShopDataValidator>
+
+      <Activity
+        candyShop={candyShop}
+        orderBy={[
+          { column: 'createdAt', order: 'desc' },
+        ]}
+      />
     </DesContainer>
   );
 };
