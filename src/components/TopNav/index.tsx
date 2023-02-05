@@ -22,6 +22,7 @@ const ROUTES_SOLANA = [
   { url: RouteName.sell, name: 'Sell' },
   { url: RouteName.auctionsView, name: 'Auctions' },
   // { url: RouteName.drop, name: 'Edition Drops' },
+  { url: RouteName.fuse, name: 'Prep Zone' },
 ];
 
 const getRoutes = () => {

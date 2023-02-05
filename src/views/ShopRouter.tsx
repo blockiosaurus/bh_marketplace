@@ -12,6 +12,7 @@ import SingleOrder from './SingleOrder';
 import TopNav from '@/components/TopNav';
 import { RouteName } from '@/constant/routeNames';
 import { useUpdateShop } from '@/hooks/useUpdateShop';
+import PrepZone from './PrepZone';
 
 export const ShopRouter = () => {
   useUpdateShop();
@@ -29,6 +30,7 @@ export const ShopRouter = () => {
           <Route path={RouteName.customToken} element={<CustomTokenMarketplace />} />
           <Route path={RouteName.multipleCollection} element={<MarketplaceWithFilter />} />
           <Route path={RouteName.marketplaceWithUrl} element={<MarketplaceWithUrl />} />
+          <Route path={RouteName.fuse} element={<PrepZone />} />
         </Routes>
       </MainContainer>
     </main>

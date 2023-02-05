@@ -77,7 +77,7 @@ const phantomConnection: ConnectionType = {
     return {
       publicKey: window.phantom.solana.publicKey,
       signMessage: (message: Uint8Array) => {
-        return window.phantom.solana.signMessage(message).then((res) => res.signature);
+        return window.phantom.solana.signMessage(message).then((res: any) => res.signature);
       },
       signTransaction: window.phantom.solana.signTransaction,
       signAllTransactions: window.phantom.solana.signAllTransactions,

@@ -9,4 +9,5 @@ export enum RouteName {
   customToken = '/custom-token-marketplace',
   multipleCollection = '/multi-collection-marketplace',
   marketplaceWithUrl = '/marketplace-with-url',
+  fuse = '/prep',
 }
